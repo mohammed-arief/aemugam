@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.*;
 
 @Model(adaptables = SlingHttpServletRequest.class,
        adapters = Author.class,
@@ -54,6 +55,9 @@ public class AuthorImpl implements Author {
     @Inject
     boolean professor;
 
+    @ValueMapValue
+    private List<String> books;
+
     @Override
     public String getFirstName() {
         return fname;
@@ -92,5 +96,14 @@ public class AuthorImpl implements Author {
     @PostConstruct
     protected void init() {
         LOG.info("\n Inside init {} : {} ", currentPage.getTitle(), resource.getPath());
+    }
+
+    @Override
+    public List<String> getBooks() {
+        if(books!=null){
+            return new ArrayList<String>(books);
+        }else{
+            return Collections.emptyList();
+        }
     }
 }
