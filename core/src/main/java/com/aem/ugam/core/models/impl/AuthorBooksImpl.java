@@ -3,11 +3,12 @@ package com.aem.ugam.core.models.impl;
 import com.aem.ugam.core.helper.MultifieldHelper;
 import com.aem.ugam.core.helper.NestedHelper;
 import com.aem.ugam.core.models.AuthorBooks;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.Default;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
-import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.*;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,11 +19,20 @@ import java.util.*;
 @Model(
         adaptables = SlingHttpServletRequest.class,
         adapters = AuthorBooks.class,
+        resourceType = AuthorBooksImpl.RESOURCE_TYPE,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
+@Exporter(name = "jackson" , extensions = "json" , selector = "ugam" ,
+        options = {
+                    @ExporterOption(name = "SerializationFeature.WRAP_ROOT_VALUE" , value = "true"),
+                    @ExporterOption(name = "MapperFeature.SORT_PROPERTIES_ALPHABETICALLY" , value = "true")
+})
+@JsonRootName("author book details")
+
 public class AuthorBooksImpl implements AuthorBooks {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthorBooksImpl.class);
+    static final String RESOURCE_TYPE = "/apps/aemugam/components/content/author-books";
 
     @Inject
     Resource componentResource;
@@ -36,6 +46,7 @@ public class AuthorBooksImpl implements AuthorBooks {
 
 
     @Override
+    @JsonProperty(value = "author-name")
     public String getAuthorName() {
         return authorName;
     }
@@ -71,6 +82,7 @@ public class AuthorBooksImpl implements AuthorBooks {
     }
 
     @Override
+    @JsonIgnore
     public List<MultifieldHelper> getBookDetailsWithBean(){
         List<MultifieldHelper> bookDetailsBean=new ArrayList<>();
         try {
