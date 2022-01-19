@@ -1,0 +1,18 @@
+<div data-sly-use.ugamexporter="com.aem.ugam.core.models.MultiExporter"></div>
+<!-- Basic Card Example -->
+ <div class="card shadow mb-4">
+     <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary">${card.title}</h6>
+     </div>
+     <div class="card-body">
+         <p>Title : <b>${ugamexporter.title}</b></p>
+         <p>Description :<b>${ugamexporter.description}</b></p>
+         <p> Date : <b>${'MMM dd,yyyy' @ format=ugamexporter.date}</b> </p>
+
+         ================== USING LIST ================
+         <div data-sly-list.item="${ugamexporter.books}">
+             <p> Book ${itemList.count} : <b>${item} </b></p>
+         </div>
+
+     </div>
+ </div>
