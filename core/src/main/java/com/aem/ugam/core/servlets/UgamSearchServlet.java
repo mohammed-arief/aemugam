@@ -29,11 +29,13 @@ public class UgamSearchServlet extends SlingAllMethodsServlet {
     protected void doGet(final SlingHttpServletRequest req, final SlingHttpServletResponse resp) throws ServletException, IOException {
         JSONObject searchResult=null;
         try {
-            String searchtext = req.getRequestParameter("searchText").getString();
+            String searchPath = req.getRequestParameter("searchPath").getString();
+            searchResult = searchService.searchResultSQL2(searchPath);
+            /*String searchtext = req.getRequestParameter("searchText").getString();
             int pageNumber = Integer.parseInt(req.getRequestParameter("pageNumber").getString())-1;
             int resultPerPage = Integer.parseInt(req.getRequestParameter("resultPerPage").getString());
             int startResult=pageNumber*resultPerPage;
-            searchResult=searchService.searchResult(searchtext,startResult,resultPerPage);
+            searchResult=searchService.searchResult(searchtext,startResult,resultPerPage);*/
         } catch (Exception e) {
             LOG.info("\n ERROR {} ", e.getMessage());
         }
