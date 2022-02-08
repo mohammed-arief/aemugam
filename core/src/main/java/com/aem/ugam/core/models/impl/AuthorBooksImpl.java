@@ -133,4 +133,14 @@ public class AuthorBooksImpl implements AuthorBooks {
     protected void init() {
         LOG.info("\n ========= PRINTING LOGS ==========");
     }
+
+    @Override
+    public Map<String,String> getBooksMap() {
+        Map<String,String> mapBooks = new HashMap<String,String>();
+        mapBooks.put("Key1","Value1");
+        mapBooks.put("Key2","Value2");
+        mapBooks.put("Key3","Value3");
+        mapBooks.put("Key4","Value4");
+        return mapBooks;
+    }
 }
