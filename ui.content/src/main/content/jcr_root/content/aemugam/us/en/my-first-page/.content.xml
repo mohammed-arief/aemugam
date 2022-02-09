@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2022-01-11T07:45:48.601+05:30"
+        cq:lastModified="{Date}2022-02-09T10:33:14.691+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/aemugam/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
@@ -28,6 +28,48 @@
                         jcr:lastModifiedBy="admin"
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="aemugam/components/helloworld"/>
+                    <contentfragment
+                        jcr:created="{Date}2022-02-08T07:48:27.505+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2022-02-08T07:48:27.505+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemugam/components/contentfragment"
+                        displayMode="multi"
+                        fragmentPath="/content/dam/aemugam/ugam-cf"/>
+                    <author_books
+                        jcr:created="{Date}2022-02-08T08:15:19.522+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2022-02-08T08:20:12.780+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemugam/components/content/author-books"
+                        books="[book 1,book 2,book 3]">
+                        <bookdetailswithmap jcr:primaryType="nt:unstructured">
+                            <item0
+                                jcr:primaryType="nt:unstructured"
+                                bookname="Harry Potter 1"
+                                booksubject="Fantasy"
+                                publishyear="2000"/>
+                            <item1
+                                jcr:primaryType="nt:unstructured"
+                                bookname="Life of Pi"
+                                booksubject="Biography"
+                                publishyear="2005"/>
+                            <item2
+                                jcr:primaryType="nt:unstructured"
+                                bookname="Sharks"
+                                booksubject="Documentry"
+                                publishyear="2010"/>
+                        </bookdetailswithmap>
+                    </author_books>
+                    <author
+                        jcr:created="{Date}2022-02-09T10:33:14.678+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2022-02-09T10:33:14.678+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="aemugam/components/content/author"/>
                 </container>
             </container>
         </root>
