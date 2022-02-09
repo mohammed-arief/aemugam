@@ -47,12 +47,40 @@
 
     ==========================================================
     <div data-sly-use.booksTemplate="template-demo.html">
-        <sly data-sly-call="${booksTemplate.authorBooks @ books=books}">
+        <sly data-sly-call="${booksTemplate.authorBooks @ books=books}"/>
     </div>
 
     <div id="sightly-attribute" data-sly-attribute.atrribute1="Overwritten Value" data-sly-attribute="${books.booksMap}">
         <p>Using sightly attribute</p>
     </div>
+
+    ===================INCLUDE============================
+    <div data-sly-include="include1.html"/>
+    <div data-sly-include="${'include2.html' @ prependPath='/files'}"/>
+
+    ===================RESOURCE===========================
+    <div data-sly-resource="${'/content/aemugam/us/en/my-first-page/jcr:content/root/container/container/helloworld'}"/>
+
+    ====================DATE===============================
+    <div>"${'yyyy-MM-dd' @ format=books.publishDate}"</div>
+    <div>"${'yyyy-MM-dd HH:mm' @ format=books.publishDate , timezone='UTC'}"</div>
+    <div>"${'EEEE, d MMM y' @ format=books.publishDate , timezone='UTC', locale='en'}"</div>
+
+    =======================GLOBAL OBJECTS==================
+    <div><p> Dialog Property : <b>  ${properties.authorName}</b></p></div>
+    <div><p> Page Property : <b>  ${pageProperties.jcr:title}</b></p></div>
+    <div><p> Inherited Page Property : <b>  ${inheritedPageProperties.jcr:title}</b></p></div>
+
+    <div><p> Component : <b>  ${component.title}</b></p></div>
+    <div><p> Component Context : <b>  ${componentContext.page.title}</b></p></div>
+    <div><p> Design Node : <b>  ${currentDesign.path}</b></p></div>
+    <div><p> Current Node : <b>  ${currentNode.path}</b></p></div>
+    <div><p> Current Page : <b>  ${currentPage.path}</b></p></div>
+    <div><p> Resource : <b>  ${resource.path}</b></p></div>
+    <div><p> Resource Page : <b>  ${resourcePage.path}</b></p></div>
+    <div><p> Resource Design : <b>  ${resourceDesign.path}</b></p></div>
+    <div><p> WCMMODE -> EDIT / PREVIEW : <b> ${wcmmode.edit} / ${wcmmode.preview}</b></p></div>
+
 
 </div>
 
