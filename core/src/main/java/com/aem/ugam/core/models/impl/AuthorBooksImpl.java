@@ -10,6 +10,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.*;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.joda.time.DateTimeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -142,5 +143,9 @@ public class AuthorBooksImpl implements AuthorBooks {
         mapBooks.put("Key3","Value3");
         mapBooks.put("Key4","Value4");
         return mapBooks;
+    }
+
+    public Calendar getPublishDate() {
+        return Calendar.getInstance();
     }
 }

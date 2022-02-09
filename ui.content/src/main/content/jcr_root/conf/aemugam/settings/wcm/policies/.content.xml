@@ -15,6 +15,16 @@
                         components="[/apps/aemugam/components/form/button,/apps/aemugam/components/form/hidden,/apps/aemugam/components/form/options,/apps/aemugam/components/form/text]">
                         <jcr:content jcr:primaryType="nt:unstructured"/>
                     </form-container>
+                    <policy_34260399984800
+                        jcr:description="Ugam Policy for Form"
+                        jcr:lastModified="{Date}2022-02-09T08:25:18.765+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Ugam Form Policy"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="group:AEM UGAM - Form">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_34260399984800>
                 </container>
             </form>
             <languagenavigation jcr:primaryType="nt:unstructured">
@@ -34,9 +44,9 @@
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
-                    disableLazyLoading="false"
                     allowUpload="false"
                     altValueFromDAM="true"
+                    disableLazyLoading="false"
                     displayPopupTitle="true"
                     isDecorative="false"
                     jpegQuality="{Long}85"
@@ -185,6 +195,41 @@
                     type="h2">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_641528232375303>
+                <policy_35514299165700
+                    cq:styleDefaultClasses="center"
+                    jcr:lastModified="{Date}2022-02-09T08:58:10.808+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Ugam Title Policy"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    allowedTypes="[h1,h2,h3,h4,h5,h6]"
+                    linkDisabled="false"
+                    type="h1">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Alignment"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="left"
+                                    cq:styleId="1644376633003"
+                                    cq:styleLabel="Align Left"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="right"
+                                    cq:styleId="1644376646233"
+                                    cq:styleLabel="Align Right"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="center"
+                                    cq:styleId="1644376654862"
+                                    cq:styleLabel="Align Center"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                    </cq:styleGroups>
+                </policy_35514299165700>
             </title>
             <experiencefragment jcr:primaryType="nt:unstructured">
                 <policy_header
@@ -236,11 +281,14 @@
                     </cq:authoring>
                 </policy_1574694950110>
                 <policy_1574695586800
-                    jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:description="This is ugam container policy"
+                    jcr:lastModified="{Date}2022-02-09T07:50:02.746+05:30"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Page Content"
+                    jcr:title="Ugam container Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:AEM UGAM - Content,/apps/aemugam/components/form/container]">
+                    components="[group:AEM UGAM - Content,/apps/aemugam/components/form/container]"
+                    layoutDisabled="false">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -331,12 +379,58 @@
             <page jcr:primaryType="nt:unstructured">
                 <policy
                     jcr:description="Includes the required client libraries."
+                    jcr:lastModified="{Date}2022-02-09T08:44:25.015+05:30"
+                    jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="Generic Page"
+                    jcr:title="Ugam Page Policy"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    clientlibs="[aemugam.dependencies,aemugam.site]"
+                    clientlibs="[aemugam.grid,aemugam.base]"
                     clientlibsJsHead="aemugam.dependencies">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:styleGroups jcr:primaryType="nt:unstructured">
+                        <item0
+                            cq:styleGroupLabel="Page Font Color"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="font-red"
+                                    cq:styleId="1644375622672"
+                                    cq:styleLabel="Font Red"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="font-green"
+                                    cq:styleId="1644375633033"
+                                    cq:styleLabel="Font Green"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="font-blue"
+                                    cq:styleId="1644375644971"
+                                    cq:styleLabel="Font Blue"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item0>
+                        <item1
+                            cq:styleGroupLabel="Text Style"
+                            jcr:primaryType="nt:unstructured">
+                            <cq:styles jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleClasses="text-overline"
+                                    cq:styleId="1644376342604"
+                                    cq:styleLabel="Over Line"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item1
+                                    cq:styleClasses="text-underline"
+                                    cq:styleId="1644376358510"
+                                    cq:styleLabel="Under Line"
+                                    jcr:primaryType="nt:unstructured"/>
+                                <item2
+                                    cq:styleClasses="text-strike-through"
+                                    cq:styleId="1644376369298"
+                                    cq:styleLabel="Strike Through"
+                                    jcr:primaryType="nt:unstructured"/>
+                            </cq:styles>
+                        </item1>
+                    </cq:styleGroups>
                 </policy>
             </page>
         </components>
