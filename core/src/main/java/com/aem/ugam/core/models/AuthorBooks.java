@@ -1,11 +1,9 @@
 package com.aem.ugam.core.models;
 
 import com.aem.ugam.core.helper.MultifieldHelper;
+import com.day.cq.wcm.api.Page;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public interface AuthorBooks {
 
@@ -22,4 +20,12 @@ public interface AuthorBooks {
     public Map<String,String> getBooksMap();
 
     public Calendar getPublishDate();
+
+    public AuthorBean getAuthorInfo();
+
+    public String[] getBookArr();
+
+    public List<String> getBookList();
+
+    public Iterator<Page> getPageIterator();
 }

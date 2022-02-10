@@ -2,13 +2,18 @@ package com.aem.ugam.core.models.impl;
 
 import com.aem.ugam.core.helper.MultifieldHelper;
 import com.aem.ugam.core.helper.NestedHelper;
+import com.aem.ugam.core.models.Author;
+import com.aem.ugam.core.models.AuthorBean;
 import com.aem.ugam.core.models.AuthorBooks;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.*;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.joda.time.DateTimeUtils;
 import org.slf4j.Logger;
@@ -38,6 +43,9 @@ public class AuthorBooksImpl implements AuthorBooks {
 
     @Inject
     Resource componentResource;
+
+    @ScriptVariable
+    PageManager pageManager;
 
     @ValueMapValue
     @Default(values = "AEM")
@@ -147,5 +155,36 @@ public class AuthorBooksImpl implements AuthorBooks {
 
     public Calendar getPublishDate() {
         return Calendar.getInstance();
+    }
+
+    @Override
+    public AuthorBean getAuthorInfo() {
+        LOG.info("\n ==============CALLING GET AUTHOR INFO===============");
+        AuthorBean authorBean = new AuthorBean();
+        authorBean.setFirstName("AEM");
+        authorBean.setLastName("UGAM");
+        return authorBean;
+    }
+
+    @Override
+    public String[] getBookArr() {
+        String[] bookArr = {"Java", "AEM", "UGAM"};
+        return bookArr;
+    }
+
+    @Override
+    public List<String> getBookList() {
+        List<String> bookList = new ArrayList<String>();
+        bookList.add("BATMAN");
+        bookList.add("SUPERMAN");
+        bookList.add("WW");
+        return bookList;
+    }
+
+    @Override
+    public Iterator<Page> getPageIterator() {
+        Page home = pageManager.getPage("/content/aemugam/us/en");
+        Iterator<Page> childs = home.listChildren();
+        return childs;
     }
 }

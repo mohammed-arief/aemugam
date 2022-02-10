@@ -81,6 +81,60 @@
     <div><p> Resource Design : <b>  ${resourceDesign.path}</b></p></div>
     <div><p> WCMMODE -> EDIT / PREVIEW : <b> ${wcmmode.edit} / ${wcmmode.preview}</b></p></div>
 
+    ============================CONTEXT========================
+    <div style="color: ${'#FFA500' @ context='styleToken'};font-family :${'Arial, Helvetica, sans-serif' @ context='styleString'};">
+        <p>This is Style Token</p>
+    </div>
+
+    <div>
+        <script>
+        function testScriptContext() {
+        var contextTest="${'scriptContextTest' @ context='scriptToken'}";
+        console.log("----------Script Context being tested---------"+contextTest);
+        }
+        </script>
+        <input type="button" class="btn btn-info" onclick="${'testScriptContext' @ context='scriptToken'}()" value="Check Script Context">
+    </div>
+
+    ==========================SIGHTLY SET============================
+    <div data-sly-set.author="${books.authorInfo}"></div>
+    <div>First Name : <b>${author.firstName}</b></div>
+    <div>Last Name : <b>${author.lastName}</b></div>
+
+    ==========================SIGHTLY UTILS==========================
+    <div>JAVA Present in ARRAY : ${'JAVA' in books.bookArr}</div>
+    <div>${books.bookList @ join=' , '}</div>
+
+    =========================URL MANIPULATION========================
+    -------------------------SCHEME----------------------------------
+    <div>${'//aemugam.com/path/page.html' @ scheme='http'}</div>
+
+    -------------------------DOMAIN----------------------------------
+    <div>${'//path/page.html' @ domain='aemugam.com'}</div>
+
+    -------------------------SELECTORS-------------------------------
+    <div>${'//path/page.html' @ selectors='selector1.selector2'}</div>
+
+    -------------------------EXTENSION-------------------------------
+    <div>${'https://aemugam.com/path/page.html' @ extension='json'}</div>
+
+    -------------------------SUFFIX----------------------------------
+    <div>${'//path/page.html' @ suffix='ugam/suffix'}</div>
+
+    -------------------------FRAGMENT--------------------------------
+    <div>${'https://aemugam.com/path/page.html' @ fragment='fragment1'}</div>
+
+
+    =========================COMMENTS================================
+    <!--/*<div>${'https://aemugam.com/path/page.html' @ fragment='fragment1'}</div>*/-->
+    <!--<div>${'https://aemugam.com/path/page.html' @ fragment='fragment1'}</div>-->
+
+    ===========================ITERATOR==============================
+    <div data-sly-list.item="${books.pageIterator}">
+        <p> Page Iterator => <b>${item.title} :  ${item.name}</b></p>
+    </div>
+
+
 
 </div>
 
